@@ -1,0 +1,9 @@
+[build]
+  command = "yarn build"
+  publish = "/opt/build/repo/.next"
+
+[plugins]
+  inputs = {}
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
