@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Barlow";
+  src: url("/fonts/Barlow-Bold.ttf");
+}
+
+@font-face {
+  font-family: "BarlowSemi";
+  src: url("/fonts/Barlow-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "BarlowLight";
+  src: url("/fonts/Barlow-Light.ttf");
+}
+@font-face {
+  font-family: "BarlowExtraLight";
+  src: url("/fonts/Barlow-ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: "JetlabMedium";
+  src: url("/fonts/Jetlab-Medium.otf");
+}
+
+@font-face {
+  font-family: "JetlabLight";
+  src: url("/fonts/Jetlab-Light.otf");
+}
+
+@font-face {
+  font-family: "LexendExtraLight";
+  src: url("/fonts/Lexend-ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: "LexendExtraBold";
+  src: url("/fonts/Lexend-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "LexendRegular";
+  src: url("/fonts/Lexend-Regular.ttf");
+}
+
+@font-face {
+  font-family: "DMSerifDisplay";
+  src: url("/fonts/DMSerifDisplay-Regular.ttf");
+}
+
+@layer base{
+  body{
+    @apply bg-[#250024] text-white tracking-wide
+  }
+
+  h1{
+    @apply text-4xl md:text-5xl font-bold text-[#f8e3ea] mb-4 font-lexendbold
+  }
+
+  h2{
+    @apply text-2xl sm:text-3xl md:text-4xl text-red-200 font-semibold z-30
+  }
+
+  h3{
+    @apply text-xl sm:text-2xl md:text-3xl text-red-300 font-normal z-30
+  }
+
+  
+  
+}
