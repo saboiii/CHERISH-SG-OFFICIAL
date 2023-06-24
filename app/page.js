@@ -10,9 +10,10 @@ export default function Home() {
   const backgroundRef = useRef(null);
   const midgroundRef = useRef(null);
   const titleRef = useRef(null);
+  const prevScrollY = useRef(0);
 
   const [scrollValue, setScrollValue] = useState(0);
-  let prevScrollY = 0;
+  
 
   useEffect(() => {
 
@@ -34,7 +35,7 @@ export default function Home() {
         title.style.opacity = `${1 - scrollValue / 100}`;
       }
 
-      prevScrollY = scrollValue;
+      let prevScrollY = scrollValue;
     };
 
     if (typeof window !== 'undefined') {
@@ -101,9 +102,9 @@ export default function Home() {
           />
           <div className="absolute inset-0 z-30 title flex justify-center py-24 px-[30%] xs:px-[15%] sm:px-28 items-start mt-[40%] md:mt-[25%] md:px-[30%] lg:mt-[20%] lg:px-[30%] xl:mt-[16%] xl:px-[30%] ">
             <div className="text-xs md:text-sm text-[#f8e3ea] font-dmserifdisplay text-center">
-              "After its founding, Singapore became a melting pot of cultures, with thousands of immigrants
+            &#34;After its founding, Singapore became a melting pot of cultures, with thousands of immigrants
               from diverse backgrounds. Together, they laid the foundation for a thriving cosmopolitan port
-              city..."
+              city...\&#34;
             </div>
           </div>
         </div>
@@ -174,8 +175,8 @@ export default function Home() {
       <div className="z-50 relative h-20 bg-[#250024]">
         <div className="inset-0 text-center px-[10%] bg-[#250024]">
           <div className="text-[#f8e3ea] text-md font-dmserifdisplay mb-2 italic">
-            "Singapore is a crossroads where every nation meets. Fifty shipping lines call there regularly...
-            it harbours an immeasurable quantity of native craft of all sizes and descriptions."
+          &#34;Singapore is a crossroads where every nation meets. Fifty shipping lines call there regularly...
+            it harbours an immeasurable quantity of native craft of all sizes and descriptions.&#34;
           </div>
           <div className="text-[#776787] text-[10px] font-lexendlight pb-4">John H. MacCallum Scott, author of Eastern Journey (1939)</div>
         </div>
@@ -193,8 +194,8 @@ export default function Home() {
           <div className="lg:hidden group-hover:block z-[60] absolute top-[30%] right-[50%] translate-x-[50%] translate-y-[50%] md:px-20">
             <h1 className="text-5xl sm:text-8xl text-center">GALLERY</h1>
             <p className="text-white text-xs sm:text-sm text-center font-dmserifdisplay italic">
-              "Uncover new narratives at our special human library event,
-              where the extraordinary efforts of essential workers are celebrated..."
+            &#34;Uncover new narratives at our special human library event,
+              where the extraordinary efforts of essential workers are celebrated...&#34;
             </p>
             <div className="py-4 absolute top-[85%] right-[50%] translate-x-[50%] translate-y-[50%]">
               <Link href="/gallery" className="cursor-pointer text-[#f8e3ea] bg-rose-600 hover:bg-blue-600 transition ease-out duration-500 font-lexendbold text-sm list-none bg-gradient-to-r from-rose-400/50 to-blue-400/50 py-2 px-2 sm:px-4 md:px-8 rounded">
@@ -222,6 +223,7 @@ export default function Home() {
               />
               <Image
                 src="/bottomgradient.png"
+                alt="/"
                 layout="fill"
                 className="z-4 object-cover object-[85%] lg:object-contain lg:object-center"
               />
@@ -238,8 +240,8 @@ export default function Home() {
       <div className="z-50 relative h-20 bg-[#250024] py-4">
         <div className="inset-0 text-center px-[10%] bg-[#250024]">
           <div className="text-[#f8e3ea] xs:text-sm text-md font-dmserifdisplay mb-2 italic">
-            "Singapore is a crossroads where every nation meets. Fifty shipping lines call there regularly...
-            it harbours an immeasurable quantity of native craft of all sizes and descriptions."
+          &#34;Singapore is a crossroads where every nation meets. Fifty shipping lines call there regularly...
+            it harbours an immeasurable quantity of native craft of all sizes and descriptions.&#34;
           </div>
           <div className="text-[#776787] text-[10px] font-lexendlight mb-24">John H. MacCallum Scott, author of Eastern Journey (1939)</div>
         </div>
