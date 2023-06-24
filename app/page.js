@@ -35,7 +35,7 @@ export default function Home() {
         title.style.opacity = `${1 - scrollValue / 100}`;
       }
 
-      let prevScrollY = scrollValue;
+      prevScrollY.current = scrollValue;
     };
 
     if (typeof window !== 'undefined') {
