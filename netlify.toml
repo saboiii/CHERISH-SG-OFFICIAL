@@ -4,6 +4,4 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-  [plugins.inputs]
-    content = "public/**/*.gif"
+  # Add any additional plugin configurations here
