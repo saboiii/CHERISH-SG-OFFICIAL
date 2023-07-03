@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link';
 import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineTwitter, AiOutlineMail } from 'react-icons/ai';
 import { FaTiktok, FaPinterest } from 'react-icons/fa';
@@ -55,10 +55,12 @@ export default function Home() {
           <Image
             src="/background.png"
             alt="background"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center"
+            }} />
         </div>
 
 
@@ -70,9 +72,12 @@ export default function Home() {
                 alt="midground"
                 width={1920}
                 height={1080}
-                objectFit="contain"
-                objectPosition="center"
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  objectPosition: "center"
+                }} />
             </div>
           </div>
         </div>
@@ -82,10 +87,12 @@ export default function Home() {
             <Image
               src="/foreground.png"
               alt="foreground"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center"
+              }} />
           </div>
           <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#250024]/30 to-transparent" />
         </div>
@@ -96,15 +103,19 @@ export default function Home() {
             alt="title"
             width={800}
             height={500}
-            objectFit="scale-down"
             className="py-24 md:py-0 lg:py-0"
-            style={{ opacity: scrollValue > 100 ? 0 : 1 }}
-          />
+            style={{
+              opacity: scrollValue > 100 ? 0 : 1,
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "scale-down",
+              objectPosition: "center"
+            }} />
           <div className="absolute inset-0 z-30 title flex justify-center py-24 px-[30%] xs:px-[15%] sm:px-28 items-start mt-[40%] md:mt-[25%] md:px-[30%] lg:mt-[20%] lg:px-[30%] xl:mt-[16%] xl:px-[30%] ">
             <div className="text-xs md:text-sm text-[#f8e3ea] font-dmserifdisplay text-center">
             &#34;After its founding, Singapore became a melting pot of cultures, with thousands of immigrants
               from diverse backgrounds. Together, they laid the foundation for a thriving cosmopolitan port
-              city...\&#34;
+              city...&#34;
             </div>
           </div>
         </div>
@@ -116,10 +127,12 @@ export default function Home() {
           <Image
             src="/aboutbg.png"
             alt="background"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center"
+            }} />
         </div>
 
         <div className="absolute inset-0 z-40 flex justify-start items-center mx-0 ">
@@ -153,9 +166,13 @@ export default function Home() {
                 alt="midground"
                 width={1920}
                 height={1080}
-                objectFit="contain"
                 className=""
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  objectPosition: "center"
+                }} />
             </div>
           </div>
         </div>
@@ -164,10 +181,12 @@ export default function Home() {
           <Image
             src="/aboutfg.png"
             alt="about foreground"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center"
+            }} />
         </div>
       </div>
 
@@ -210,23 +229,23 @@ export default function Home() {
             <Image
               src="/gallerybg.gif"
               alt="Gallery Background"
-              layout="fill"
               className="z-1 object-cover object-[85%] lg:object-contain lg:object-center"
-            />
+              fill
+              sizes="100vw" />
 
             <div className="z-3">
               <Image
                 src="/hands.gif"
                 alt="newsimage"
-                layout="fill"
                 className="z-3 object-cover object-[85%] lg:object-contain lg:object-center"
-              />
+                fill
+                sizes="100vw" />
               <Image
                 src="/bottomgradient.png"
                 alt="/"
-                layout="fill"
                 className="z-4 object-cover object-[85%] lg:object-contain lg:object-center"
-              />
+                fill
+                sizes="100vw" />
               <div className="absolute bottom-0 left-0 right-0 z-30 bg-gradient-to-t from-[#250024] to-transparent h-[10%]" />
 
             </div>
@@ -260,11 +279,13 @@ export default function Home() {
             <Image
               src="/contactbg.png"
               alt="contact background"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
               className="relative z-0"
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center"
+              }} />
 
             
             <div className="absolute inset-0 z-10 bg-gradient-to-b md:bg-gradient-to-r from-[#250024]/75 md:from-[#250024] to-transparent"></div>
@@ -272,11 +293,13 @@ export default function Home() {
             <Image
               src="/contactfg.png"
               alt="contact foreground"
-              layout="fill"
-              objectFit="cover"
               className="hidden md:flex relative z-30 pt-[150%] sm:pt-[75%] md:pt-0 object-right scale-100"
-              style={{ pointerEvents: "none" }}
-            />
+              fill
+              sizes="100vw"
+              style={{
+                pointerEvents: "none",
+                objectFit: "cover"
+              }} />
             <div className="relative flex flex-col md:flex-row z-20">
               <div className="md:w-1/2 pr-0 md:px-12 py-20">
                 <h1 className="mb-4 sm:text-4xl">CONTACT US</h1>

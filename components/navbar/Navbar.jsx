@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Link from "next/link"
-import Image from "next/legacy/image"
+import Image from "next/image"
 import { useState } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
@@ -56,7 +56,18 @@ const Navbar = () => {
                         <li className="flex">
                             <Link href="/">
                                 <div className="md:mx-6 lg:mx-14 w-9 h-9 ">
-                                    <Image src="/mainlogo.png" alt="Logo" layout="responsive" width={100} height={100} objectFit="contain" className="hover:scale-110" />
+                                    <Image
+                                        src="/mainlogo.png"
+                                        alt="Logo"
+                                        width={100}
+                                        height={100}
+                                        className="hover:scale-110"
+                                        sizes="100vw"
+                                        style={{
+                                            width: "100%",
+                                            height: "auto",
+                                            objectFit: "contain"
+                                        }} />
                                 </div>
                             </Link>
                         </li>
@@ -66,7 +77,7 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Navbar
