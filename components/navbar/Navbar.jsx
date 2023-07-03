@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Link from "next/link"
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { useState } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';

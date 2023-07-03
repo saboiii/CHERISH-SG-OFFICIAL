@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineTwitter, AiOutlineMail } from 'react-icons/ai';
 import { FaTiktok, FaPinterest } from 'react-icons/fa';
