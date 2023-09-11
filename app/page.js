@@ -20,7 +20,7 @@ export default function Home() {
     const handleScroll = () => {
       const title = titleRef.current;
       const scrollValue = window.scrollY;
-      const offset = scrollValue * 0.6; // Adjust this value to control the parallax effect
+      const offset = scrollValue * 0.6;
 
       backgroundRef.current.style.transform = `translateY(${-scrollValue * 0.25}px)`;
       midgroundRef.current.style.transform = `translateY(${offset}px)`;
@@ -28,10 +28,8 @@ export default function Home() {
 
 
       if (scrollValue > prevScrollY) {
-        // Scrolling down
         title.style.opacity = `${1 - scrollValue / 50}`;
       } else {
-        // Scrolling up
         title.style.opacity = `${1 - scrollValue / 100}`;
       }
 
