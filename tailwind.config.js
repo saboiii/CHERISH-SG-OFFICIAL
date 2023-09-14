@@ -11,7 +11,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -39,14 +39,36 @@ module.exports = {
         lexendlight: ['LexendExtraLight', 'sans-serif'],
         lexendbold: ['LexendExtraBold', 'sans-serif'],
         lexend: ['LexendRegular', 'sans-serif'],
-        dmserifdisplay: ['DMSerifDisplay', 'serif']
+        dmserifdisplay: ['DMSerifDisplay', 'serif'],
+        partsold: ['Partsold', 'sans-serif']
       },
 
-      safelist: ['animate-[slide-in-right_15s_ease-in-out]'],
+      animation: {
+        'shake': 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both',
+      },
+      
+      keyframes: {
+        'shake': {
+          '10%, 90%': {
+            transform: 'translate3d(-0.5px, 0, 0)'
+          },
+          '20%, 80%': {
+            transform: 'translate3d(1px, 0, 0)'
+          },
+          '30%, 50%, 70%': {
+            transform: 'translate3d(-2px, 0, 0)'
+          },
+          '40%, 60%': {
+            transform: 'translate3d(2px, 0, 0)'
+          }
+        }
+      }
+
     },
   },
   plugins: [
     require("tw-elements/dist/plugin.cjs"),
+    require('@tailwindcss/typography'),
 
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(

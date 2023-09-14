@@ -5,9 +5,12 @@ import Image from "next/image"
 import { useState } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
+import { FiLogOut } from 'react-icons/fi';
+import { signOut, useSession } from 'next-auth/react';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
+    const session = useSession();
 
     const handleNav = () => {
         setNav(!nav)
@@ -31,14 +34,16 @@ const Navbar = () => {
                                     <Link href="/about"> <div className="py-2 my-4 border-x-2 rounded bg-gradient-to-r from-rose-400/50 to-blue-400/25 hover:scale-[102%] transition ease-out duration-500 "><li className="text-lg text-center uppercase text-pink-100 font-lexendbold">About</li></div> </Link>
                                     <Link href="/contact"> <div className="py-2 my-4 border-x-2 rounded bg-gradient-to-r from-rose-400/75 to-blue-400/25 hover:scale-[102%] transition ease-out duration-500 "><li className="text-lg text-center uppercase text-pink-100 font-lexendbold">Contact</li></div> </Link>
                                     <Link href="/gallery"> <div className="py-2 my-4 border-x-2 rounded bg-gradient-to-r from-rose-400/50 to-blue-400/25 hover:scale-[102%] transition ease-out duration-500 "><li className="text-lg text-center uppercase text-pink-100 font-lexendbold">Gallery</li></div> </Link>
-                                    <Link href="/dashboard"> <div className="py-2 my-4 border-x-2 rounded bg-gradient-to-r from-rose-400/25 to-blue-400/25 hover:scale-[102%] transition ease-out duration-500 "><li className="text-lg text-center uppercase text-pink-100 font-lexendbold">Dashboard</li></div> </Link>
-                                    {/*
-                                        <div className="border-t border-dashed border-rose-200">
-                                            <div className="py-4 my-4 border-x-4 rounded bg-gradient-to-r from-blue-400/75 to-green-400/75 hover:scale-105 text-lg text-center uppercase text-pink-100 font-jetlabmedium">
-                                                <button onClick={()=>{console.log("Logged out.")}}>Logout</button>
-                                            </div>
+                                    <Link href="/dashboard/login"> <div className="py-2 my-4 border-x-2 rounded bg-gradient-to-r from-rose-400/25 to-blue-400/25 hover:scale-[102%] transition ease-out duration-500 "><li className="text-lg text-center uppercase text-pink-100 font-lexendbold">{session.status === "authenticated" ? "Dashboard" : "Login"}</li></div> </Link>
+                                    {session.status === "authenticated" && (
+                                        <div
+                                            className="py-2 my-4 border-x-2 rounded bg-gradient-to-r from-green-400/50 to-blue-400/50 hover:scale-[102%] transition ease-out duration-500 text-lg text-center uppercase text-pink-100 font-lexendbold"
+                                            onClick={() => {
+                                                signOut();
+                                            }}>
+                                            Logout
                                         </div>
-                                    */}
+                                    )}
                                 </ul>
                             </div>
                         </div>
@@ -72,7 +77,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <Link href="/gallery"> <li className="md:mx-12 lg:mx-20 text-s uppercase hover:text-rose-300 transition ease-out duration-500  text-[#fdf3f3] font-lexendbold">Gallery</li> </Link>
-                        <Link href="/dashboard"> <li className="md:mx-12 lg:mx-20 text-s uppercase hover:text-rose-300 transition ease-out duration-500  text-[#fdf3f3] font-lexendbold">Dashboard</li> </Link>
+                        <Link href="/dashboard/login"> <li className="md:mx-12 lg:mx-20 text-s uppercase hover:text-rose-300 transition ease-out duration-500  text-[#fdf3f3] font-lexendbold">{session.status === "authenticated" ? "Dashboard" : "Login"}</li> </Link>
                     </ul>
                 </div>
             </div>
