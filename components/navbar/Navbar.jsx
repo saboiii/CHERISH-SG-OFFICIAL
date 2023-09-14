@@ -5,7 +5,6 @@ import Image from "next/image"
 import { useState } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
-import { FiLogOut } from 'react-icons/fi';
 import { signOut, useSession } from 'next-auth/react';
 
 const Navbar = () => {
@@ -19,15 +18,39 @@ const Navbar = () => {
     return (
         <div>
             <div className="fixed w-full h-20 z-[100] bg-gradient-to-b from-[#250024] to-transparent">
+
+
                 <div className={nav ? "md:hidden fixed left-0 w-full h-screen bg-black/70 ease-in duration-300" : ""}>
-                    <div className={nav ? "fixed left-0 top-0 w-[65%] sm:w-[50%] md:w-[45%] h-screen bg-[#ff859b]/25 backdrop-blur-md p-6 ease-in duration-300 shadow-xl shadow-[#30191b]" :
-                        "fixed left-[-100%] top-0 w-[65%] sm:w-[50%] md:w-[45%] h-screen bg-[#ff859b]/25 p-6 ease-in duration-300 shadow-xl shadow-[#30191b]"}>
+                    <div className={nav ? "fixed left-0 top-0 w-[65%] sm:w-[50%] md:w-[45%] h-screen bg-gradient-to-b from-[#250024] to-[#10000f] backdrop-blur-md p-6 ease-in-out duration-300 shadow-xl shadow-black/50" :
+                        "fixed left-[-100%] top-0 w-[65%] sm:w-[50%] md:w-[45%] h-screen bg-gradient-to-b from-[#250024] to-[#10000f] backdrop-blur-md p-6 ease-in-out duration-300 shadow-xl shadow-black/50"}>
+
                         <div className="flex w-full items-center justify-end py-0 my-2">
                             <div onClick={handleNav} className="cursor-pointer hover:scale-105 pr-1">
                                 <IoMdClose size={25} />
                             </div>
                         </div>
-                        <div className="">
+                        {session?.data?.user ? (
+                            <div className="flex items-center justify-between bg-[#2d182c] p-4 rounded-xl shadow-lg shadow-[#10080f]/50">
+                                <div className="flex items-center space-x-4 ">
+                                    <Image
+                                        src="/anshika.jpeg"
+                                        alt="Profile Picture"
+                                        width={200}
+                                        height={200}
+                                        className="w-20 h-20 rounded-full shadow-lg shadow-[#250024]/50"
+                                    />
+                                    <div className="flex flex-col">
+                                        <span className="text-pink-200 text-2xl font-lexendbold">
+                                            {session.data.user.name}
+                                        </span>
+                                        <span className="text-pink-100 font-lexendlight text-sm">
+                                            {session.data.user.email}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : null}
+                        <div>
                             <div className="flex flex-col justify-center align-middle border-rose-200 ">
                                 <ul>
                                     <Link href="/"> <div className="py-2 my-4 border-x-2 rounded bg-gradient-to-r from-rose-400/25 to-blue-400/25 hover:scale-[102%] transition ease-out duration-500 "><li className="text-lg text-center uppercase text-pink-100 font-lexendbold">Home</li></div> </Link>

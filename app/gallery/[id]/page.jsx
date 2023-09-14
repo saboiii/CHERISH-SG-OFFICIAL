@@ -28,7 +28,7 @@ const GalleryPost = async ({ params }) => {
     <div className="min-h-screen bg-gradient-to-b from-[#250024] to-transparent text-white">
       <div className="relative h-[75vh] overflow-hidden">
         <Image
-          src="/gallerydummypic.jpeg"
+          src={data.image}
           alt="Gallery Image"
           width={500}
           height={500}

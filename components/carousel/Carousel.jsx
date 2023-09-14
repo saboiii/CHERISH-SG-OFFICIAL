@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillCaretRight, AiFillCaretLeft } from 'react-icons/ai';
 
@@ -36,7 +37,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="relative h-[50%] flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center">
 
       {/* next and previous buttons */}
       <div className="absolute inset-0 flex items-center justify-between mx-[10%]">
@@ -55,7 +56,7 @@ const Carousel = () => {
       </div>
 
       {/* mapping data */}
-      <div className="h-full w-full max-w-screen-lg overflow-hidden py-[15%] px-2 md:px-[20%]">
+      <div className="h-full w-full overflow-hidden py-[15%] px-2 md:px-[20%]">
         <div
           className="flex transition-transform ease-out duration-500 py-4"
           style={{
@@ -69,19 +70,29 @@ const Carousel = () => {
               className="w-full flex-shrink-0 p-4"
               style={{ width: `${100 / slides.length}%` }}
             >
-              <div className="bg-gradient-to-r from-white to-[#fceff3] rounded-tl-3xl rounded-br-3xl text-center p-20">
+              <div className="flex bg-gradient-to-r items-start justify-center from-white to-[#fceff3] rounded-tl-3xl rounded-br-3xl text-left py-12 px-8 md:p-16">
+                <div className='flex flex-col w-1/2'>
+                  <h1 className="text-2xl md:text-3xl text-rose-400 mt-2">
+                    {slide.title}
+                  </h1>
+                  <p className="text-xs font-lexend text-[#250024] mb-4">
+                    {slide.desc}
+                  </p>
+                  <Link href={`/gallery/${slide._id}`} className='cursor-pointer text-[#f8e3ea] bg-rose-600 hover:bg-blue-600 transition ease-out duration-500 font-lexendbold text-xs list-none bg-gradient-to-r from-rose-400/50 to-blue-400/50 py-2 px-4 w-28 rounded'>
+                    READ MORE
+                  </Link>
+                </div>
 
-                <h1 className="text-3xl text-rose-400">
-                  {slide.title}
-                </h1>
-                <p className="text-xs sm:text-sm font-lexend text-[#250024] px-[10%] mb-8">
-                  {slide.desc}
-                </p>
-                <Link href={`/gallery/${slide._id}`} className='cursor-pointer text-[#f8e3ea] bg-rose-600 hover:bg-blue-600 transition ease-out duration-500 font-lexendbold text-sm list-none bg-gradient-to-r from-rose-400/50 to-blue-400/50 py-2 px-2 sm:px-4 md:px-8 rounded'>
-                  READ MORE
-                </Link>
+                <div className='flex bg-rose-400 mr-auto ml-4 md:ml-8 w-[50%] h-52 rounded-3xl'>
+                  <Image
+                    src={slide.image}
+                    alt="Thumbnail for post."
+                    width={500}
+                    height={500}
+                    className="object-cover h-100 w-100 rounded-lg"
+                  />
+                </div>
               </div>
-
             </div>
           ))}
         </div>

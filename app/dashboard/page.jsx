@@ -70,9 +70,9 @@ const Dashboard = () => {
   if (session.status === "authenticated") {
     return (
       <div>
-        <div className="relative h-[45vh] bg-[#250024]">
+        <div className="relative h-[45vh] bg-[#250024] z-10 shadow-lg shadow-black/20">
           <div className='absolute bottom-0 left-0 p-10 lg:p-20 overflow-hidden w-screen'>
-            <h1 className='text-6xl text-rose-200 font-lexend'>Welcome back.</h1>
+            <h1 className='text-5xl text-rose-200 font-lexend'>Welcome back, {session.data.user.name}.</h1>
             <p className='font-lexend text-sm text-[#7d5872]'> You can create new gallery posts and follow up on old posts here.</p>
             <div
               className="flex justify-center px-4 py-1 text-sm mt-6 border border-rose-200 rounded-full w-[20vh] hover:text-rose-300 hover:border-rose-300 transition ease-out duration-500 text-rose-200 font-lexendbold"
@@ -81,10 +81,22 @@ const Dashboard = () => {
               }}>
               LOGOUT NOW
             </div>
+
           </div>
+          
+          <div className='absolute bottom-0 overflow-hidden w-screen'>
+            <Image
+              src="/anshika.jpeg"
+              alt="Anshika"
+              width={180}
+              height={180}
+              className="hidden md:flex ml-auto m-12 rounded-full object-cover"
+            />
+          </div>
+
         </div>
 
-        <div className='relative h-screen w-screen bg-[#e3d1d8] py-4 px-8 overflow-hidden'>
+        <div className='relative min-h-screen w-screen bg-[#e3d1d8] py-4 px-8 overflow-hidden'>
           <div className='grid lg:grid-cols-3 gap-8 p-8 h-full'>
 
             <div className='lg:col-span-2 col-span-1 flex justify-between w-full bg-[#fdf3f3] rounded-2xl md:h-full'>
@@ -124,18 +136,16 @@ const Dashboard = () => {
                   : data?.map((post) => (
                     <Link href={`/gallery/${post._id}`}>
                       <li className='bg-[#e3d1d8] hover:scale-[101%] transition ease-out duration-200 mx-4 mb-4 rounded-lg p-4 flex items-center cursor-pointer' key={post._id}>
-                        <div className='bg-[#b699a4] w-20 h-20 rounded-lg'>
-                          {/*<Image
+                        <Image
                           src={post.image}
-                          alt=""
-                          width={500}
-                          height={500}
-                        /> */}
-
-                        </div>
-                        <div>
+                          alt="Thumbnail for post."
+                          width={100}
+                          height={100}
+                          className="object-cover h-24 w-24 rounded-lg"
+                        />
+                        <div className='w-[50%]'>
                           <h1 className='text-lg text-[#826d75] mx-3 mb-0 uppercase'> {post.title} </h1>
-                          <p className='text-xs text-[#b0929e] mx-3 font-lexend'> {post.desc} </p>
+                          <p className='text-xs text-[#b0929e] mx-3 font-lexend truncate'> {post.desc} </p>
                         </div>
                         <span className='ml-auto z-10' onClick={() => handleDelete(post._id)}>
                           <AiOutlineClose className='text-[#3d273c] hover:text-[#ac8aab]' />
