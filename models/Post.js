@@ -7,7 +7,7 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    desc: {
+    link: {
         type: String,
         required: true,
     },
@@ -15,7 +15,7 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    content: {
+    abstract: {
         type: String,
         required: true,
     },
@@ -23,7 +23,7 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    username: {
+    author: {
         type: String,
         required: true,
     },

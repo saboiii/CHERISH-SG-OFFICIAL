@@ -269,6 +269,7 @@ export default function Home() {
       {/* contact section */}
       <div className="relative min-h-screen bg-[#250024]">
         <Contact/>
+        <div className="absolute bottom-0 left-0 right-0 z-30 bg-gradient-to-t from-[#10000f] to-transparent h-[10%]" />
       </div>
 
     </div>

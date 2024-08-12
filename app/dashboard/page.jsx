@@ -52,6 +52,7 @@ const Dashboard = () => {
   };
 
   const fetcher = (...args) => fetch(...args).then(res => res.json())
+  
   const { data, mutate, error, isLoading } = useSWR(
     `/api/posts?username=${session?.data?.user.name}`,
     fetcher
@@ -71,11 +72,11 @@ const Dashboard = () => {
     return (
       <div>
         <div className="relative h-[45vh] bg-[#250024] z-10 shadow-lg shadow-black/20">
-          <div className='absolute bottom-0 left-0 p-10 lg:p-20 overflow-hidden w-screen'>
+          <div className='absolute bottom-0 left-0 p-10 lg:p-20 overflow-hidden w-screen z-20'>
             <h1 className='text-5xl text-rose-200 font-lexend'>Welcome back, {session.data.user.name}.</h1>
             <p className='font-lexend text-sm text-[#7d5872]'> You can create new gallery posts and follow up on old posts here.</p>
             <div
-              className="flex justify-center px-4 py-1 text-sm mt-6 border border-rose-200 rounded-full w-[20vh] hover:text-rose-300 hover:border-rose-300 transition ease-out duration-500 text-rose-200 font-lexendbold"
+              className="cursor-pointer flex justify-center px-4 py-1 text-sm mt-6 border border-rose-200 rounded-full w-[20vh] hover:text-rose-300 hover:border-rose-300 transition ease-out duration-500 text-rose-200 font-lexendbold"
               onClick={() => {
                 signOut();
               }}>

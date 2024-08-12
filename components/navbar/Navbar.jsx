@@ -87,15 +87,10 @@ const Navbar = () => {
                                     <Image
                                         src="/mainlogo.png"
                                         alt="Logo"
-                                        width={100}
-                                        height={100}
+                                        width={200}
+                                        height={200}
                                         className="hover:scale-110"
-                                        sizes="100vw"
-                                        style={{
-                                            width: "100%",
-                                            height: "auto",
-                                            objectFit: "contain"
-                                        }} />
+                                    />
                                 </div>
                             </Link>
                         </li>

@@ -249,7 +249,7 @@ const Contact = () => {
                         </div>
 
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 z-30 bg-gradient-to-t from-[#250024] to-transparent h-[10%]" />
+                    
 
                 </div>
 

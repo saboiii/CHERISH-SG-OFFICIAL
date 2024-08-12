@@ -14,6 +14,7 @@ const ContactPage = () => {
     <div className="bg-[#250024] text-white">
       <div className="relative min-h-screen pt-4">
         <Contact/>
+        <div className="absolute bottom-0 left-0 right-0 z-30 bg-gradient-to-t from-[#250024] to-transparent h-[10%]" />
       </div>
 
       <div className="pt-10 pb-20 text-white">

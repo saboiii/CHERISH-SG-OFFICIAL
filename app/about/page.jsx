@@ -31,7 +31,7 @@ const About = () => {
   }
 
   return (
-    <div className="bg-[#250024]">
+    <div className="bg-gradient-to-b from-[#250024] to-[#10000f]">
       <div className="h-screen py-[20%] mx-24 lg:mx-48 text-white text-center">
         <div className="container">
           <h1>OUR VISION</h1>
@@ -60,7 +60,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="h-screen py-[25%] bg-gradient-to-t from-[#250024] to-transparent text-white text-center">
+      <div className="h-screen py-[25%]  text-white text-center">
         <div className="container mx-auto">
           <h1 className="mb-8">MEMBERS</h1>
           <div className="flex flex-col items-center md:flex-row md:justify-center">
